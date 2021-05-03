@@ -1,7 +1,7 @@
 name: Raspberry Pi CPU Temperature
 slug: pi-cpu-temp
 type: plugin
-version: 0.1.0
+version: 0.1.1
 description: prints out the CPU temperatur of your Raspberry Pi
 icon: plug
 author:

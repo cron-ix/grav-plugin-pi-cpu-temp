@@ -14,8 +14,12 @@ class PiCpuTempTwigExtension extends \Twig_Extension
 	}
 	public function piCpuTempFunction()
 	{
-		$cpu = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
-		return number_format($cpu/1000, 1, ',', '.') . " °C";
+		try {
+			$cpu = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+			return number_format($cpu/1000, 1, ',', '.') . " °C";
+		} catch (Exception $ex) {
+			return $e->getMessage();
+		}
 	}
 }
 

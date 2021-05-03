@@ -1,0 +1,32 @@
+name: Raspberry Pi CPU Temperature
+slug: pi-cpu-temp
+type: plugin
+version: 0.1.0
+description: prints out the CPU temperatur of your Raspberry Pi
+icon: plug
+author:
+  name: Thomas Schroeder
+  email: Thomas.Schroeder@vrax.de
+homepage: https://github.com/cron-ix/grav-plugin-pi-cpu-temp
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/cron-ix/grav-plugin-pi-cpu-temp/issues
+docs: https://github.com/cron-ix/grav-plugin-pi-cpu-temp/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool

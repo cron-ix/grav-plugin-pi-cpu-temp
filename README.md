@@ -11,7 +11,7 @@ stallation method enables you to quickly and easily install the plugin with a si
 
 The simplest way to install this plugin is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's terminal (also called the command line).  From the root of your Grav install type:
 
-    `$ bin/gpm install pi-cpu-temp`
+    $ bin/gpm install pi-cpu-temp
 
 This will install the pi-cpu-temp plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/pi-cpu-temp`.
 
@@ -21,7 +21,7 @@ To install this plugin, just download the zip version of this repository and unz
 
 You should now have all the plugin files under
 
-    `$ /your/site/grav/user/plugins/pi-cpu-temp`
+    $ /your/site/grav/user/plugins/pi-cpu-temp
     
 > NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav) and the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) to operate.
 
@@ -29,4 +29,4 @@ You should now have all the plugin files under
 ## Usage
 
 1. Set Process Twig to true for your page
-2. in content use `{{ piCpuTemp() }}`
+2. in your pages content use `{{ piCpuTemp() }}`

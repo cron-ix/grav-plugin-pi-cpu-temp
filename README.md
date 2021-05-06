@@ -44,29 +44,33 @@ Note that if you use the Admin Plugin, a file with your configuration named pi-c
 
 To use this plugin, you need to do three little steps: **1.** enable Twig processing; **2.** disable cache; **3.** insert code
 
-1. Enable Twig proccessing for your page:
-   a. Frontmatter:
-        ```yaml
-        process:
-            twig: true
-        ```
-    b. Admin Plugin:
-        * goto 'Page' and select your page
-        * click on 'Advanced' tab
-        * in section 'Overrides' enable 'Process' and enable 'Twig' (make sure it is checked)
+1. Enable Twig proccessing for your page:  
+   a. Frontmatter:  
+    ```yaml
+    process:
+        twig: true
+    ```  
 
-   
-2. As pages are cached by default you need to disable caching (per page) if you want to read the temperature on load:
-   a. Frontmatter:
-        ```yaml
-        never_cache_twig: true
-        ```
     b. Admin Plugin:
-        * goto 'Page' and select your page
-        * click on 'Advanced' tab
-        * in section 'Overrides' enable 'Never Cache Twig ' and click on 'Yes'
+      * goto 'Page' and select your page  
+      * click on 'Advanced' tab  
+      * in section 'Overrides' enable 'Process' and enable 'Twig' (make sure it is checked)  
+
+2. As pages are cached by default you need to disable caching (per page) if you want to read the temperature on load:  
+    a. Frontmatter:  
+    ```yaml
+    never_cache_twig: true
+    ```  
+    b. Admin Plugin:  
+      * goto 'Page' and select your page  
+      * click on 'Advanced' tab  
+      * in section 'Overrides' enable 'Never Cache Twig ' and click on 'Yes'  
         
-3. Now you can use the following code in your page where you want to have the output: **`{{ piCpuTemp() }}`**. The forementioned code will be replaced with the output.
+3. Now you can use the following code in your page where you want to have the output:
+    ```
+    {{ piCpuTemp() }}
+    ```
+    This code snippet will be replaced with the output.
 
 ## To Do
 

@@ -1,6 +1,6 @@
 # GRAV Plugin: Raspberry Pi Core Temperature
 
-If your [GRAV CMS](https://getgrav.org/) is running on a LINUX-powered Raspberry Pi, this plugin let's you show the Pi cpu core temperature (in degree celsius). This plugin uses PHP shell_exec to read the value from `/sys/class/thermal/thermal_zone0/temp`, so a device/OS supporting the interface for thermal zone devices (sensors) via sysfs is needed. Tested on Raspberry Pi 4B running [Manjaro ARM](https://manjaro.org/download/#raspberry-pi-4)
+If your [GRAV CMS](https://getgrav.org/) is running on a LINUX-powered Raspberry Pi, this plugin let's you show the Pi's SoC core temperature (in degree celsius). This plugin uses PHP shell_exec to read the value from `/sys/class/thermal/thermal_zone0/temp`, so a device/OS supporting the interface for thermal zone devices (sensors) via sysfs is needed. Tested on Raspberry Pi 4B running [Manjaro ARM](https://manjaro.org/download/#raspberry-pi-4)
 
 ## Installation
 
@@ -43,9 +43,31 @@ Note that if you use the Admin Plugin, a file with your configuration named pi-c
 
 ## Usage
 
-1. 
-2. Set Process Twig to true for your page
-3. in your pages content use `{{ piCpuTemp() }}`
+To use this plugin, you need to do three little steps: **1.** enable Twig processing; **2.** disable cache; **3.** insert code
+
+1. Enable Twig proccessing for your page:
+   a. Frontmatter:
+        ```yaml
+        process:
+            twig: true
+        ```
+    b. Admin Plugin:
+        * goto 'Page' and select your page
+        * click on 'Advanced' tab
+        * in section 'Overrides' enable 'Process' and enable 'Twig' (make sure it is checked)
+
+   
+2. As pages are cached by default you need to disable caching (per page) if you want to read the temperature on load:
+   a. Frontmatter:
+        ```yaml
+        never_cache_twig: true
+        ```
+    b. Admin Plugin:
+        * goto 'Page' and select your page
+        * click on 'Advanced' tab
+        * in section 'Overrides' enable 'Never Cache Twig ' and click on 'Yes'
+        
+3. Now you can use the following code in your page where you want to have the output: **`{{ piCpuTemp() }}`**. The forementioned code will be replaced with the output.
 
 ## To Do
 

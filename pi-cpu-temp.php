@@ -22,16 +22,6 @@ class PiCpuTempPlugin extends Plugin
     }
 
     /**
-    * Composer autoload.
-    *is
-    * @return ClassLoader
-    */
-    public function autoload(): ClassLoader
-    {
-        return require __DIR__ . '/vendor/autoload.php';
-    }
-
-    /**
      * Initialize the plugin to create the Twig extension
      */
     public function onTwigExtensions()
@@ -41,10 +31,9 @@ class PiCpuTempPlugin extends Plugin
             return;
         }
 
-        // Enable the main events we are interested in
-        $this->enable([
-            // add Twig extension
-            $this->grav['twig']->twig->addExtension(new PiCpuTempTwigExtension());
-        ]);
+        // include Twig extension file
+        require_once(__DIR__ . '/twig/PiCpuTempTwigExtension.php');
+        // add Twig extension
+        $this->grav['twig']->twig->addExtension(new PiCpuTempTwigExtension());
     }
 }

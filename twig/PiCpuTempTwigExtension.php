@@ -34,7 +34,7 @@ class PiCpuTempTwigExtension extends \Twig_Extension
 		} catch (Exception $ex) {
 			// return error message
 			// return $ex->getMessage();
-			return "An error occured while reading from `/sys/class/thermal/thermal_zone0/temp`, see [README.md](https://github.com/cron-ix/grav-plugin-pi-cpu-temp#readme) for further information."
+			return "An error occured while reading from `/sys/class/thermal/thermal_zone0/temp`, see [README.md](https://github.com/cron-ix/grav-plugin-pi-cpu-temp#readme) for further information.";
 		}
 	}
 }

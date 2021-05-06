@@ -2,6 +2,8 @@
 
 If your [GRAV CMS](https://getgrav.org/) is running on a LINUX-powered Raspberry Pi, this plugin let's you show the Pi's SoC core temperature (in degree celsius). This plugin uses PHP shell_exec to read the value from `/sys/class/thermal/thermal_zone0/temp`, so a device/OS supporting the interface for thermal zone devices (sensors) via sysfs is needed. Tested on Raspberry Pi 4B running [Manjaro ARM](https://manjaro.org/download/#raspberry-pi-4)
 
+**Hint:** This plugin works on other *nix operating systems, that uses sysfs. But then you need to know which sensor is at `thermal_zone0`.
+
 ## Installation
 
 Installing the Raspberry Pi Cpu Temperature plugin can be done in one of three ways: The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command, the manual method lets you do so via a zip file, and the admin method lets you do so via the Admin Plugin.

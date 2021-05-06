@@ -30,7 +30,3 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    text_var:
-      type: text
-      label: PLUGIN_RASPBERRY_PI_CPU_TEMPERATURE.TEXT_VARIABLE
-      help: PLUGIN_RASPBERRY_PI_CPU_TEMPERATURE.TEXT_VARIABLE_HELP

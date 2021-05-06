@@ -1,32 +1,52 @@
 # GRAV Plugin: Raspberry Pi Core Temperature
 
-If your GRAV CMS is running on a Raspberry Pi, this plugin let's you show the Pi cpu core temperature. This plugin uses PHP shell_exec to read the value from `/sys/class/thermal/thermal_zone0/temp`
+If your [GRAV CMS](https://getgrav.org/) is running on a LINUX-powered Raspberry Pi, this plugin let's you show the Pi cpu core temperature (in degree celsius). This plugin uses PHP shell_exec to read the value from `/sys/class/thermal/thermal_zone0/temp`, so a device/OS supporting the interface for thermal zone devices (sensors) via sysfs is needed. Tested on Raspberry Pi 4B running [Manjaro ARM](https://manjaro.org/download/#raspberry-pi-4)
 
 ## Installation
 
-Installing the pi-cpu-temp plugin can be done in one of two ways. The GPM (Grav Package Manager) in
-stallation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file.
+Installing the Raspberry Pi Cpu Temperature plugin can be done in one of three ways: The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command, the manual method lets you do so via a zip file, and the admin method lets you do so via the Admin Plugin.
 
 ### GPM Installation (Preferred)
 
-The simplest way to install this plugin is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's terminal (also called the command line).  From the root of your Grav install type:
+To install the plugin via the [GPM](http://learn.getgrav.org/advanced/grav-gpm), through your system's terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
 
-    $ bin/gpm install pi-cpu-temp
+    bin/gpm install pi-cpu-temp
 
-This will install the pi-cpu-temp plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/pi-cpu-temp`.
+This will install the Raspberry Pi Cpu Temperature plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/pi-cpu-temp`.
 
 ### Manual Installation
 
-To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then, rename the folder to `pi-cpu-temp`. You can find these files on [GitHub](https://github.com/cron-ix/grav-plugin-pi-cpu-temp) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+To install the plugin manually, download the zip-version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `pi-cpu-temp`. You can find these files on [GitHub](https://github.com/cron-ix/grav-plugin-pi-cpu-temp) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
 
 You should now have all the plugin files under
 
-    $ /your/site/grav/user/plugins/pi-cpu-temp
-    
-> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav) and the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) to operate.
+    /your/site/grav/user/plugins/pi-cpu-temp
+	
+> NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/cron-ix/grav-plugin-pi-cpu-temp/blob/master/blueprints.yaml).
+
+### Admin Plugin
+
+If you use the Admin Plugin, you can install the plugin directly by browsing the `Plugins`-menu and clicking on the `Add` button.
+
+## Configuration
+
+Before configuring this plugin, you should copy the `user/plugins/pi-cpu-temp/pi-cpu-temp.yaml` to `user/config/plugins/pi-cpu-temp.yaml` and only edit that copy.
+
+Here is the default configuration and an explanation of available options:
+
+```yaml
+enabled: true
+```
+
+Note that if you use the Admin Plugin, a file with your configuration named pi-cpu-temp.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
 
 ## Usage
 
-1. Set Process Twig to true for your page
-2. in your pages content use `{{ piCpuTemp() }}`
+1. 
+2. Set Process Twig to true for your page
+3. in your pages content use `{{ piCpuTemp() }}`
+
+## To Do
+
+- [ ] add option for Fahrenheit

@@ -36,9 +36,18 @@ class PiCpuTempPlugin extends Plugin
      */
     public function onTwigExtensions()
     {
-        // include Twig extension file
-        require_once(__DIR__ . '/twig/PiCpuTempTwigExtension.php');
-        // add Twig extension
-        $this->grav['twig']->twig->addExtension(new PiCpuTempTwigExtension());
+        // Don't proceed if we are in the admin plugin
+        if ($this->isAdmin()) {
+            return;
+        }
+
+        // Enable the main events we are interested in
+        $this->enable([
+            // include Twig extension file
+            require_once(__DIR__ . '/twig/PiCpuTempTwigExtension.php');
+            // add Twig extension
+            $this->grav['twig']->twig->addExtension(new PiCpuTempTwigExtension());
+
+        ]);
     }
 }

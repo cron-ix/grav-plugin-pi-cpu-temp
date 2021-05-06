@@ -33,7 +33,8 @@ class PiCpuTempTwigExtension extends \Twig_Extension
 			return number_format($cpu/1000, 1, ',', '.') . " °C";
 		} catch (Exception $ex) {
 			// return error message
-			return $ex->getMessage();
+			// return $ex->getMessage();
+			return "An error occured while reading from `/sys/class/thermal/thermal_zone0/temp`, see [README.md](https://github.com/cron-ix/grav-plugin-pi-cpu-temp#readme) for further information."
 		}
 	}
 }

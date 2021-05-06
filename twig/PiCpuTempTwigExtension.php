@@ -9,10 +9,10 @@ class PiCpuTempTwigExtension extends \Twig_Extension
 	{
 		return 'PiCpuTempTwigExtension';
 	}
-	
+
 	/**
 	 * public function name: 'piCpuTemp'
-	 * 
+	 *
 	 * runs funtion 'piCpuTempFunction'
 	 */
 	public function getFunctions()
@@ -27,16 +27,25 @@ class PiCpuTempTwigExtension extends \Twig_Extension
 	public function piCpuTempFunction()
 	{
 		$sensor_path = '/sys/class/thermal/thermal_zone0/temp';
+		$readme_url = 'https://github.com/cron-ix/grav-plugin-pi-cpu-temp#readme';
 
 		// read content
 		$sensor_value = @file_get_contents($sensor_path);
-		// do the error handling
+		// error handling
+		// file not found or NULL
 		if ($sensor_value === FALSE) {
-			$return_value = "An error occured while reading from `/sys/class/thermal/thermal_zone0/temp`, see [README.md](https://github.com/cron-ix/grav-plugin-pi-cpu-temp#readme) for further information.";
+				$return_value = sprintf('Temperature sensor not found at "%1$s", see "README.md" (%2$s) for further information.', $sensor_path, $readme_url);
 		}
-		elseif (is_numeric($sensor_value)) {
-			$return_value = number_format($cpu/1000, 1, ',', '.') . " °C";
+		// return value is > 0
+		// ToDo: can core temp be lower than 0 (extreme cooling scenarios)?
+		elseif (intval("$sensor_value") > 0) {
+				$return_value = number_format($sensor_value/1000, 1, ',', '.') . " °C";
 		}
+		// value is not numeric or 0 and lower
+		else {
+				$return_value = sprintf('No temperature found at "%1$s".', $sensor_path);
+		}
+		
 		return $return_value;
 	}
 }

@@ -1,0 +1,29 @@
+{
+  "name": "cron-ix/pi-cpu-temp",
+  "type": "grav-plugin",
+  "description": "prints out the CPU temperature of your Raspberry Pi running Linux-OS",
+  "keywords": ["plugin"],
+  "homepage": "https://github.com/cron-ix/pi-cpu-temp",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Schroeder",
+      "email": "Thomas.Schroeder@vrax.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Plugin\\PiCpuTempPlugin\\": "classes/"
+    },
+    "classmap":  ["pi-cpu-temp.php"]
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.3"
+    }
+  }
+}

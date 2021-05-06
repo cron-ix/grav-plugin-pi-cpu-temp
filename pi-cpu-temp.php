@@ -41,13 +41,9 @@ class PiCpuTempPlugin extends Plugin
             return;
         }
 
-        // Enable the main events we are interested in
-        $this->enable([
-            // include Twig extension file
-            require_once(__DIR__ . '/twig/PiCpuTempTwigExtension.php');
-            // add Twig extension
-            $this->grav['twig']->twig->addExtension(new PiCpuTempTwigExtension());
-
-        ]);
+        // include Twig extension file
+        require_once(__DIR__ . '/twig/PiCpuTempTwigExtension.php');
+        // add Twig extension
+        $this->grav['twig']->twig->addExtension(new PiCpuTempTwigExtension());
     }
 }

@@ -22,16 +22,6 @@ class PiCpuTempPlugin extends Plugin
     }
 
     /**
-    * Composer autoload.
-    *is
-    * @return ClassLoader
-    */
-    public function autoload(): ClassLoader
-    {
-        return require __DIR__ . '/vendor/autoload.php';
-    }
-
-    /**
      * Initialize the plugin to create the Twig extension
      */
     public function onTwigExtensions()
